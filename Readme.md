@@ -1,145 +1,83 @@
-# EDK II Project
+# ModernFW Project
+1. [What is ModernFW?](#1-what-is-modernfw)
+   * [Objectives](#objectives)
+	 + [High Level](#high-level)
+     + [Architectures](#architectures)
+	 + [Host OS](#host-os)
+2. [Getting Started](#2-getting-started)
+3. [Status](#3-status)
+4. [Dependencies](#4-project-dependencies)
+5. [Community](#5-community)
+	* [Join us](#join-us)
+6. [Security](#6-security)
 
-A modern, feature-rich, cross-platform firmware development environment
-for the UEFI and PI specifications from www.uefi.org.
 
-The majority of the content in the EDK II open source project uses a
-[BSD-2-Clause Plus Patent License](License.txt).  The EDK II open source project
-contains the following components that are covered by additional licenses:
-* [BaseTools/Source/C/BrotliCompress](BaseTools/Source/C/BrotliCompress/LICENSE)
-* [MdeModulePkg/Library/BrotliCustomDecompressLib](MdeModulePkg/Library/BrotliCustomDecompressLib/LICENSE)
-* [BaseTools/Source/C/LzmaCompress](BaseTools/Source/C/LzmaCompress/LZMA-SDK-README.txt)
-* [MdeModulePkg/Library/LzmaCustomDecompressLib](MdeModulePkg/Library/LzmaCustomDecompressLib/LZMA-SDK-README.txt)
-* [IntelFrameworkModulePkg/Library/LzmaCustomDecompressLib/Sdk](IntelFrameworkModulePkg/Library/LzmaCustomDecompressLib/LZMA-SDK-README.txt)
-* [BaseTools/Source/C/VfrCompile/Pccts](BaseTools/Source/C/VfrCompile/Pccts/RIGHTS)
-* [EdkCompatibilityPkg/Other/Maintained/Tools/Pccts](EdkCompatibilityPkg/Other/Maintained/Tools/Pccts/README)
-* [MdeModulePkg/Universal/RegularExpressionDxe/Oniguruma](MdeModulePkg/Universal/RegularExpressionDxe/Oniguruma/README)
-* [OvmfPkg](OvmfPkg/License.txt)
-* [CryptoPkg/Library/OpensslLib/openssl](CryptoPkg/Library/OpensslLib/openssl/LICENSE)
 
-The EDK II Project is composed of packages.  The maintainers for each package
-are listed in [Maintainers.txt](Maintainers.txt).
+# 1. What is ModernFW?
+**This project is an experiment and should not be used with production workloads.**
 
-# Resources
-* [TianoCore](http://www.tianocore.org)
-* [EDK II](https://github.com/tianocore/tianocore.github.io/wiki/EDK-II)
-* [Getting Started with EDK II](https://github.com/tianocore/tianocore.github.io/wiki/Getting-Started-with-EDK-II)
-* [Mailing Lists](https://github.com/tianocore/tianocore.github.io/wiki/Mailing-Lists)
-* [TianoCore Bugzilla](https://bugzilla.tianocore.org)
-* [How To Contribute](https://github.com/tianocore/tianocore.github.io/wiki/How-To-Contribute)
-* [Release Planning](https://github.com/tianocore/tianocore.github.io/wiki/EDK-II-Release-Planning)
-* [UDK2017](https://github.com/tianocore/edk2/releases/tag/vUDK2017)
-* [UDK2018](https://github.com/tianocore/edk2/releases/tag/vUDK2018)
-* [edk2-stable201811](https://github.com/tianocore/edk2/releases/tag/edk2-stable201811)
+ModernFW is an experimental approach to building a minimum viable platform firmware for machines such as cloud server platforms. Traditional PC firmware packages have evolved over time and have emphasized backwards compatibility and generality of purpose. We are seeking to reduce the overall footprint, increase efficiency, and to improve the security posture of the system by eliminating capabilities that are not needed to meet requirements for platforms that serve more vertically integrated purposes.  For example, one avenue for exploration is to move any functionality that can be accomplished in the context of the operating system out of the firmware.
+ModernFW is based on TianoCore, and any learnings will be shared upstream to that community and others.
 
-# Code Contributions
-To make a contribution to a TianoCore project, follow these steps.
-1. Create a change description in the format specified below to
-   use in the source control commit log.
-2. Your commit message must include your `Signed-off-by` signature
-3. Submit your code to the TianoCore project using the process
-   that the project documents on its web page.  If the process is
-   not documented, then submit the code on development email list
-   for the project.
-4. It is preferred that contributions are submitted using the same
-   copyright license as the base project. When that is not possible,
-   then contributions using the following licenses can be accepted:
-   * BSD (2-clause): http://opensource.org/licenses/BSD-2-Clause
-   * BSD (3-clause): http://opensource.org/licenses/BSD-3-Clause
-   * MIT: http://opensource.org/licenses/MIT
-   * Python-2.0: http://opensource.org/licenses/Python-2.0
-   * Zlib: http://opensource.org/licenses/Zlib
+## Objectives
+### High Level
+* Modern, native 64-bit boot process
+* Just enough firmware to boot and self-maintain
+* Eliminate legacy device types
+* Minimal emulated and virtual device support
+* Defer work to the OS where possible
+* Hand off to host kernel sooner
+* Minimize number of firmware drivers
+* Modular, customizable configuration
+* Shared code trees between firmware and kernel/OS
 
-   For documentation:
-   * FreeBSD Documentation License
-     https://www.freebsd.org/copyright/freebsd-doc-license.html
+### Architectures
+* x86-64, with specific hardware platforms to be determined in the future.
 
-   Contributions of code put into the public domain can also be
-   accepted.
+### Host OS
+* 64-bit Linux
+* Ohter server OSs based on community support and contributions
 
-   Contributions using other licenses might be accepted, but further
-   review will be required.
+# 2. Getting Started
 
-# Developer Certificate of Origin
+# 3. Status
+This project is just starting out. We have taken a recent snapshot of TianoCore, removed several components not required for optimized boot, and are filing pull requests on remaining components to drive our approach. In the coming weeks and months we will be taking more significant steps to pare down to a minimum viable code base.
 
-Your change description should use the standard format for a
-commit message, and must include your `Signed-off-by` signature.
+# 4. Project dependencies
+TBD
 
-In order to keep track of who did what, all patches contributed must
-include a statement that to the best of the contributor's knowledge
-they have the right to contribute it under the specified license.
+# 5. Community
 
-The test for this is as specified in the [Developer's Certificate of
-Origin (DCO) 1.1](https://developercertificate.org/). The contributor
-certifies compliance by adding a line saying
+We are working on building a global, diverse and collaborative community around the ModernFW project. Anyone who is interested in [contributing](CONTRIBUTING.md) to the project is welcome to participate.
 
-  Signed-off-by: Developer Name <developer@example.org>
+We believe that contributing to a open source project like ModernFW covers a lot more than just sending code. Testing, documentation, pull request reviews, bug reports, feature requests, project improvement suggestions, etc, are all equal and welcome means of contribution. See the [CONTRIBUTING](CONTRIBUTING.md) document for more details.
 
-where `Developer Name` is the contributor's real name, and the email
-address is one the developer is reachable through at the time of
-contributing.
+License: [BSD-2-Clause-Patent](https://opensource.org/licenses/BSDplusPatent)
 
-```
-Developer's Certificate of Origin 1.1
+## Join us
 
-By making a contribution to this project, I certify that:
+Join the conversation on our [mailing list](https://lists.01.org/mailman/listinfo/modernfw).
 
-(a) The contribution was created in whole or in part by me and I
-    have the right to submit it under the open source license
-    indicated in the file; or
+# 6. Security
 
-(b) The contribution is based upon previous work that, to the best
-    of my knowledge, is covered under an appropriate open source
-    license and I have the right under that license to submit that
-    work with modifications, whether created in whole or in part
-    by me, under the same open source license (unless I am
-    permitted to submit under a different license), as indicated
-    in the file; or
+**Reporting a Potential Security Vulnerability**: If you have discovered
+potential security vulnerability in this project, please send an e-mail to
+secure@intel.com. For issues related to Intel Products, please visit
+https://security-center.intel.com.
 
-(c) The contribution was provided directly to me by some other
-    person who certified (a), (b) or (c) and I have not modified
-    it.
+It is important to include the following details:
+  - The projects and versions affected
+  - Detailed description of the vulnerability
+  - Information on known exploits
 
-(d) I understand and agree that this project and the contribution
-    are public and that a record of the contribution (including all
-    personal information I submit with it, including my sign-off) is
-    maintained indefinitely and may be redistributed consistent with
-    this project or the open source license(s) involved.
-```
+Vulnerability information is extremely sensitive. Please encrypt all security
+vulnerability reports using our *PGP key*
 
-# Sample Change Description / Commit Message
+A member of the Intel Product Security Team will review your e-mail and
+contact you to to collaborate on resolving the issue. For more information on
+how Intel works to resolve security issues, see: *Vulnerability Handling
+Guidelines*
 
-```
-From: Contributor Name <contributor@example.com>
-Subject: [Repository/Branch PATCH] Pkg-Module: Brief-single-line-summary
+PGP Key: https://www.intel.com/content/www/us/en/security-center/pgp-public-key.html
 
-Full-commit-message
-
-Signed-off-by: Contributor Name <contributor@example.com>
-```
-
-## Notes for sample patch email
-
-* The first line of commit message is taken from the email's subject
-  line following `[Repository/Branch PATCH]`. The remaining portion of the
-  commit message is the email's content.
-* `git format-patch` is one way to create this format
-
-## Definitions for sample patch email
-
-* `Repository` is the identifier of the repository the patch applies.
-  This identifier should only be provided for repositories other than
-  `edk2`. For example `edk2-BuildSpecification` or `staging`.
-* `Branch` is the identifier of the branch the patch applies. This
-  identifier should only be provided for branches other than `edk2/master`.
-  For example `edk2/UDK2015`, `edk2-BuildSpecification/release/1.27`, or
-  `staging/edk2-test`.
-* `Module` is a short identifier for the affected code or documentation. For
-  example `MdePkg`, `MdeModulePkg/UsbBusDxe`, `Introduction`, or
-  `EDK II INF File Format`.
-* `Brief-single-line-summary` is a short summary of the change.
-* The entire first line should be less than ~70 characters.
-* `Full-commit-message` a verbose multiple line comment describing
-  the change.  Each line should be less than ~70 characters.
-* `Signed-off-by` is the contributor's signature identifying them
-  by their real/legal name and their email address.
+Vulnerability Handling Guidelines: https://www.intel.com/content/www/us/en/security-center/vulnerability-handling-guidelines.html
