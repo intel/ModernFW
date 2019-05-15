@@ -36,7 +36,7 @@ ModernFW is based on TianoCore, and any learnings will be shared upstream to tha
 
 ### Host OS
 * 64-bit Linux
-* Ohter server OSs based on community support and contributions
+* Other server OSs based on community support and contributions
 
 # 2. Getting Started
 
