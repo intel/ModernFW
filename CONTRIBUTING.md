@@ -25,7 +25,7 @@ ModernFW uses the “fork-and-pull” development model. Follow these steps if y
 1. Fork the ModernFW project into your github organization.
 2. Within your fork, create a branch for your contribution.
 3. Create a pull request against the master branch of the ModernFW repository.
-4. Add reviewers to your pull request and then work with your reviewers to address any comments and obtain approvals from a minimum of two maintainers. To update your pull request amend existing commits whenever applicable and then push the new changes to your pull request branch.
+4. Add reviewers to your pull request and then work with your reviewers to address any comments. To update your pull request amend existing commits whenever applicable and then push the new changes to your pull request branch.
 5. Once the pull request is approved, one of the maintainers will merge it.
 
 ## Issue tracking
